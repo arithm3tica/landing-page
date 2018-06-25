@@ -1,0 +1,23 @@
+<svg width="101" height="101" viewBox="0 0 101 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_d)">
+<path d="M40 0C17.92 0 0 17.92 0 40C0 62.08 17.92 80 40 80C62.08 80 80 62.08 80 40C80 17.92 62.08 0 40 0Z" transform="translate(9.22266 7.56836)" fill="white"/>
+</g>
+<path d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37257 0 -9.76562e-06 5.37258 -9.76562e-06 12C-9.76562e-06 18.6274 5.37257 24 12 24Z" transform="translate(37.2227 36.6084)" stroke="#4A9CD3" stroke-miterlimit="10" stroke-linejoin="round"/>
+<path d="M3.99999 8C6.20913 8 8 6.20914 8 4C8 1.79086 6.20913 0 3.99999 0C1.79086 0 -4.88281e-06 1.79086 -4.88281e-06 4C-4.88281e-06 6.20914 1.79086 8 3.99999 8Z" transform="translate(26.1021 41.4883)" fill="white" stroke="#4A9CD3" stroke-miterlimit="10"/>
+<path d="M39.4618 1.058C52.7418 -0.782001 62.7418 -0.221999 63.3018 2.738C64.0218 6.338 50.4218 12.098 32.9818 15.618C15.5418 19.138 0.741823 19.058 0.0218231 15.458C-0.138177 14.498 0.581808 13.458 2.18181 12.338C3.06181 11.698 4.26182 10.978 5.62182 10.258" transform="translate(17.4404 38.3503)" stroke="#4A9CD3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M4.88281e-06 0.423694C4.88281e-06 0.423694 7.35999 -2.05631 11.84 4.98369" transform="translate(46.2627 37.9446)" stroke="#4A9CD3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M5.04 10.08C7.82351 10.08 10.08 7.82351 10.08 5.04C10.08 2.25648 7.82351 0 5.04 0C2.25648 0 4.88281e-06 2.25648 4.88281e-06 5.04C4.88281e-06 7.82351 2.25648 10.08 5.04 10.08Z" transform="translate(37.4624 15.3284)" stroke="#4A9CD3" stroke-miterlimit="10"/>
+<path d="M6.96 13.92C10.8039 13.92 13.92 10.8039 13.92 6.96C13.92 3.1161 10.8039 0 6.96 0C3.11609 0 9.76563e-06 3.1161 9.76563e-06 6.96C9.76563e-06 10.8039 3.11609 13.92 6.96 13.92Z" transform="translate(32.3433 63.4883)" stroke="#4A9CD3" stroke-miterlimit="10"/>
+<path d="M5.04 10.08C7.82351 10.08 10.08 7.82352 10.08 5.04C10.08 2.25649 7.82351 0 5.04 0C2.25648 0 9.76562e-06 2.25649 9.76562e-06 5.04C9.76562e-06 7.82352 2.25648 10.08 5.04 10.08Z" transform="translate(70.7427 51.4883)" stroke="#4A9CD3" stroke-miterlimit="10"/>
+<defs>
+<filter id="filter0_d" x="0.222656" y="0.568359" width="100" height="100" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 0"/>
+<feOffset dx="1" dy="3"/>
+<feGaussianBlur stdDeviation="5"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+</filter>
+</defs>
+</svg>

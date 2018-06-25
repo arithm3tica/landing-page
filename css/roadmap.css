@@ -58,6 +58,7 @@ main {
       z-index: 1; }
       @media screen and (max-width: 745px) {
         .timeline .points .point {
+          text-align: left;
           max-width: 100%;
           flex: 1 1 100%;
           margin-top: 30px !important; } }
@@ -92,7 +93,8 @@ main {
             line-height: 44px;
             background: #F5F6F7;
             border-radius: 10px 10px 0 0;
-            color: #535B68; } }
+            color: #535B68;
+            padding: 0 30px; } }
         .timeline .points .point .content :first-child {
           margin-top: 0; }
         .timeline .points .point .content :last-child {
