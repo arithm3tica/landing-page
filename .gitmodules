@@ -1,0 +1,4 @@
+[submodule "contribute"]
+	path = contribute
+	url = https://github.com/arithm3tica/arithmetica.git
+	branch = gh-pages
