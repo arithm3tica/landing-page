@@ -19,7 +19,6 @@ const LandingPage = (function() {
         menuContainer.classList.remove('open');
     })
 
-
     // sticky nav 
     window.addEventListener('touchmove', stickyNav);
     window.addEventListener('scroll', stickyNav)
@@ -30,6 +29,13 @@ const LandingPage = (function() {
         } else {
             mainNav.classList.remove('sticky-nav');
         }
+    }
+
+    // team portraits
+    const portraits = document.querySelectorAll('#team .portrait');
+
+    for (let portrait of portraits) {
+        portrait.style.backgroundImage = 'url(images/' + portrait.dataset.bg + ')';
     }
 
 })();
