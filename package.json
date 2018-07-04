@@ -2,11 +2,11 @@
   "name": "arithmetica-website",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.html",
+  "main": "docs/index.html",
   "repository": "https://github.com/arithm3tica/landing-page.git",
   "scripts": {
-    "build": "node-sass --output-style compressed -o dist/css src/scss && babel src/js -d dist/js",
-    "watch": "concurrently \"sass --watch src/scss:dist/css\" \"babel src/js -w -d dist/js\"",
+    "build": "node-sass --output-style compressed -o docs/css src/scss && babel src/js -d docs/js",
+    "watch": "concurrently \"sass --watch src/scss:docs/css\" \"babel src/js -w -d docs/js\"",
     "deploy": "source scripts/deploy"
   },
   "author": "Ryan Goree",
