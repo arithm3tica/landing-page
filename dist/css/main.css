@@ -121,6 +121,42 @@ input:not([type=submit]):not([type=file]) {
 .content-block {
   max-width: 600px; }
 
+.tooltip {
+  color: #6BBCF2;
+  border-bottom: 1px dotted #6BBCF2;
+  position: relative;
+  cursor: help; }
+  .tooltip .tooltip-text {
+    background: #fff;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: left;
+    width: 400px;
+    padding: 17px 20px;
+    border: 1px solid f0f1f2;
+    border-radius: 8px;
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
+    color: #535B68;
+    position: absolute;
+    bottom: calc(100% + 5px);
+    left: 50%;
+    transform: translate(-50%, 0) scale(0.92);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 200ms; }
+    .tooltip .tooltip-text:after {
+      content: '';
+      position: absolute;
+      border-top: 10px solid #fff;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      top: 100%;
+      left: calc(50% - 5px); }
+  .tooltip:hover .tooltip-text {
+    bottom: calc(100% + 10px);
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1); }
+
 #main-nav {
   font-size: 18px;
   position: fixed;
