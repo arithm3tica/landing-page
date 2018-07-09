@@ -526,6 +526,53 @@ main {
     }
 }
 
+.interested {
+    margin: 120px 0 150px;
+
+    .header-block {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .main-content-row {
+        display: flex;
+        justify-content: space-around;
+        margin: 120px 0 150px;
+
+        @media screen and (max-width: $breakpoint-small-monitor) {
+            flex-direction: column;
+            margin: 60px 0;
+        }
+
+        > * {
+            max-width: 600px;
+            flex: 1 1 600px;
+
+            @media screen and (max-width: $breakpoint-small-monitor) {
+                flex-basis: 0;
+            }
+        }
+
+        .content-block {
+            margin: 0 60px 0 0;
+
+            @media screen and (max-width: $breakpoint-small-monitor) {
+                margin: 0 auto;
+            }
+        }
+
+        &:nth-child(even) .content-block {
+            order: 2;
+            margin: 0 0 0 60px;
+
+            @media screen and (max-width: $breakpoint-small-monitor) {
+                order: 1;
+                margin: 0 auto;
+            }
+        }
+    }
+}
+
 .use-cases {
     padding-top: 210px;
     padding-bottom: 140px;
@@ -548,7 +595,7 @@ main {
   .demo-video .content-block { 
     position: relative;    
     padding-top: 25%;  
-    padding-bottom: 15%;   
+    padding-bottom: 0%;   
     text-align: center;    
     margin: 0 auto; }  
   .demo-video .content {   
@@ -607,8 +654,8 @@ main {
 }
 
 #team {
-    padding-top: 110px;
-    padding-bottom: 180px;
+    padding-top: 140px;
+    padding-bottom: 140px;
 
     h2 {
         margin: 0 0 50px;
@@ -703,7 +750,7 @@ main {
 
 .final-cta {
     background: url(../images/final-cta-bg.png) no-repeat center bottom/2103px auto, $brand-gradient;
-    padding-top: 210px;
+    padding-top: 170px;
 
     @media screen and (max-width: 1000px) {
         background-size: auto 100%;
@@ -711,7 +758,7 @@ main {
 
     .content-block {
         text-align: center;
-        margin: 0 auto 120px;
+        margin: 0 auto 60px;
 
         h2 {
             font-size: 48px;
