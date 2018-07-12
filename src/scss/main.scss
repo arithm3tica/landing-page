@@ -271,18 +271,11 @@ input:not([type=submit]):not([type=file]) {
                 color: $brand-blue;
             }
 
-            &[target=_blank]:after {
-                content: url(../images/new-tab-link.svg);
-                vertical-align: middle;
-                margin-left: 5px;
-            }
-
             @media screen and (max-width: $breakpoint-mobile-menu) {
                 color: $cool-gray-dark;
                 line-height: 60px;
                 font-size: 18px;
                 height: 60px;
-                border-top: 1px solid $cool-gray-light;
                 padding: 0 20px;
                 width: 100%;
             }
@@ -369,17 +362,33 @@ input:not([type=submit]):not([type=file]) {
                 padding: 0;
                 margin: 0;
 
+
                 @media screen and (max-width: $breakpoint-mobile-menu) {
                     flex-direction: column;
                 }
 
-                li:first-child {
+            }
+            
+            li:not(.social-media-link){
+                @media screen and (max-width: $breakpoint-mobile-menu) {
+                    border-bottom: 1px solid $cool-gray-light;
+                }
+            }
+            
 
+            .social-media-links {
+
+                @media screen and (max-width: $breakpoint-mobile-menu) {
+                    flex-direction: row;
+                    justify-content: space-evenly;
+                    width: 100%;
+                    position: absolute;
+                    bottom: 0px;
+                }
+
+                li{
                     @media screen and (max-width: $breakpoint-mobile-menu) {
-
-                        a {
-                            border-top: none;
-                        }
+                        border-bottom: none;
                     }
                 }
             }
@@ -526,52 +535,6 @@ main {
     }
 }
 
-.interested {
-    margin: 120px 0 150px;
-
-    .header-block {
-        text-align: center;
-        margin: 0 auto;
-    }
-
-    .main-content-row {
-        display: flex;
-        justify-content: space-around;
-        margin: 120px 0 150px;
-
-        @media screen and (max-width: $breakpoint-small-monitor) {
-            flex-direction: column;
-            margin: 60px 0;
-        }
-
-        > * {
-            max-width: 600px;
-            flex: 1 1 600px;
-
-            @media screen and (max-width: $breakpoint-small-monitor) {
-                flex-basis: 0;
-            }
-        }
-
-        .content-block {
-            margin: 0 60px 0 0;
-
-            @media screen and (max-width: $breakpoint-small-monitor) {
-                margin: 0 auto;
-            }
-        }
-
-        &:nth-child(even) .content-block {
-            order: 2;
-            margin: 0 0 0 60px;
-
-            @media screen and (max-width: $breakpoint-small-monitor) {
-                order: 1;
-                margin: 0 auto;
-            }
-        }
-    }
-}
 
 .use-cases {
     padding-top: 210px;
@@ -756,13 +719,65 @@ main {
         background-size: auto 100%;
     }
 
-    .content-block {
-        text-align: center;
-        margin: 0 auto 60px;
+    .interested {
+        font-size: 18px;
+        padding: 45px 0 60px;
+        margin-top: 0;
+        justify-content: space-evenly;
+        display: flex;
 
-        h2 {
-            font-size: 48px;
-            margin: 0 0 30px;
+        .interested-left {
+            display: flex;
+            flex-direction: column;
+        }
+        .interested-right {
+            max-width: 400px;
+            p{
+                padding-top: 14px;
+            }
+        }
+
+        @media screen and (max-width: 1000px) {
+            flex-direction: column-reverse;
+            text-align: center;
+            
+            .interested-left {
+                display: block;
+            }
+
+            .interested-right {
+                max-width: 640px;
+                margin: 45px auto;
+            }
+        }
+
+        .content-block {
+            text-align: center;
+            margin: 0 0 60px;
+            display: inline-flex;
+            justify-content: space-evenly;
+            .help-button {
+                padding: 10px;
+                .button-cta {
+                    width: 100%;
+                    overflow-x: auto;
+                    margin: 0 auto;
+                }
+            }
+        }
+
+
+        #mc_embed_signup_scroll{
+
+            input {
+                width: 100%;
+                margin: 9px 0 15px;
+            }
+
+            button {
+                
+                width: 100%;
+            }
         }
     }
 
@@ -778,7 +793,7 @@ main {
             flex-direction: column;
 
             .copyright {
-                margin-top: auto;
+                margin-top: 10px;
             }
         }
 
@@ -789,6 +804,33 @@ main {
 
         .footer-right {
             max-width: 400px;
+            ul {
+                overflow: auto;
+                text-align: center;
+                padding: 0px;
+                display: flex;
+                justify-content: center;
+                li {
+                    list-style-type: none;
+                    float: left;
+                }
+
+                li a i {
+                    color: #D1DAE3;
+                    opacity: .6;
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 100%;
+                    font-size: 25px;
+                    text-align: center;
+                    margin-right: 15px;
+                    padding-top: 15%;
+                    transition: color .2s linear;
+                }
+                li a i:hover {
+                    opacity: 1;
+                }
+            }
         }
 
         @media screen and (max-width: 1000px) {
@@ -814,28 +856,6 @@ main {
         .footer-center > :first-child,
         .footer-right > :first-child {
             margin-top: 0;
-        }
-
-        #footer-updates-form {
-
-            h2 {
-                font-size: 24px;
-                margin: 0 0 6px;
-            }
-
-            p {
-                margin: 6px 0;
-            }
-
-            input {
-                width: 100%;
-                margin: 9px 0 15px;
-            }
-
-            button {
-                display: block;
-                width: 100%;
-            }
         }
     }
 }
