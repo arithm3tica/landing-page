@@ -9,47 +9,6 @@
   gtag('js', new Date());
   gtag('config', 'UA-121683726-1');
 </script>
-<script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
-<script type="text/javascript">
-    $(window).on("load",function(e){
-    var notMobile = !window.matchMedia("only screen and (max-width: 760px)");
-    if(notMobile.matches){
-        $("[data-media]").on("click", function(e) {
-            e.preventDefault();
-            var $this = $(this);
-            var videoUrl = $this.attr("data-media");
-            var popup = $this.attr("href");
-            var $popupIframe = $(popup).find("iframe");
-            
-            $popupIframe.attr("src", videoUrl);
-            
-            $this.closest(".page").addClass("show-popup");
-            $this.closest(".page").removeClass("hide-popup");
-
-        });
-    }
-    else{
-        $("[data-media]")[0].href = "https://www.youtube.com/embed/qc_T5NhzoSQ?vq=hd720&autoplay=1&modestbranding=1&rel=0";
-        $("[data-media]")[0].target="_blank";
-        $(".popup").remove();
-    }
-    $(".popup > iframe").on("click", function(e) {
-        e.stopPropagation();
-    });
-    $(function(){
-      $(".closeBtn").click(function(){
-        $($('.popup iframe').get(0)).attr('src','')
-        $($(this).closest(".page")).removeClass("show-popup");
-        $($(this).closest(".page")).addClass("hide-popup");
-      });
-    });
-
-});
-</script>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <title>Arithmetica - Decentralized Computational Math Platform</title>
@@ -102,16 +61,10 @@
             <div class="content-block">
                 <h1>Power In Numbers</h1>
                 <p> Create and contribute to <span class="tooltip">volunteer computing<span class="tooltip-text"><strong>Volunteer computing</strong> is a type of computing in which computer owners or users donate their computing resources to one or more research projects.</span></span> projects in math and science.</p>
-                <div class="page">
-                    <a class="button-cta" href="#interested">I'm Interested!</a>
-                    <a href="#media-popup" data-media="//www.youtube.com/embed/qc_T5NhzoSQ?vq=hd720&amp;autoplay=1&amp;modestbranding=1&amp;rel=0&amp;showinfo=0&amp;enablejsapi=1">
-                        <span class="button">Play Video</span> 
-                    </a>
-                    <div class="popup" id="media-popup">
-                        <div class="closeBtn" data-target="#media-popup">X</div>
-                        <iframe width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </div>
+                <a class="button-cta" href="#interested">I'm Interested!</a>
+                <a href="https://www.youtube.com/embed/qc_T5NhzoSQ?vq=hd720&autoplay=1&modestbranding=1&rel=0" target="_blank">
+                    <span class="button">Play Video</span> 
+                </a>
             </div>
         </div>
         <svg class="section-arrow-bottom" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
