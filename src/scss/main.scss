@@ -58,48 +58,6 @@ a {
     color: $brand-blue;
 }
 
-.page {
-  position: relative;
-  height: 100%;
-} 
-
-.popup {
-    position:absolute;
-    z-index:2;
-    top:0;
-    left:0;
-    width:720px;
-    height:405px;
-    margin-top:-285px;
-    margin-left:-100px;
-    background:rgba(0,0,0,0.7);
-    opacity:0;
-    visibility:hidden;
-    transition:.3s ease;
-}
-
-.show-popup .popup {
-    opacity:1;
-    visibility: visible;    
-}
-
-.hide-popup .popup {
-    transition:.3s ease;
-    visibility: false;    
-}
-.closeBtn {
-    cursor: pointer;
-    float: right;
-    margin-top:5px;
-    margin-right:10px;
-}
-.popup > iframe {
-    position:absolute;
-    top:50px;
-    left:50%;
-    margin-left:-360px;
-}
-
 button, input[type=submit] {
     cursor: pointer;
 }
@@ -526,6 +484,48 @@ input:not([type=submit]):not([type=file]) {
         .button-cta {
             margin-top: 30px;
         }
+
+        .page {
+          position: relative;
+          height: 100%;
+        } 
+
+        .popup {
+            position:absolute;
+            z-index:2;
+            top:0;
+            left:0;
+            width:720px;
+            height:405px;
+            margin-top:-285px;
+            margin-left:-28%;
+            background:rgba(0,0,0,0.7);
+            opacity:0;
+            visibility:hidden;
+            transition:.3s ease;
+        }
+
+        .show-popup .popup {
+            opacity:1;
+            visibility: visible;    
+        }
+
+        .hide-popup .popup {
+            transition:.3s ease;
+            visibility: false;    
+        }
+        .closeBtn {
+            cursor: pointer;
+            float: right;
+            margin-top:5px;
+            margin-right:10px;
+        }
+        .popup > iframe {
+            position:absolute;
+            top:50px;
+            left:50%;
+            margin-left:-360px;
+        }
     }
 }
 
@@ -592,30 +592,6 @@ main {
         text-align: center;
     }
 }
-
-.demo-video {  
-  padding-top: 110px;  
-  padding-bottom: 0px;     
-}  
-  .demo-video .content-block { 
-    position: relative;    
-    padding-top: 25%;  
-    padding-bottom: 25%;   
-    text-align: center;    
-    margin: 0 auto; }  
-  .demo-video .content {   
-    position: absolute;    
-    top: 0;    
-    left: 0;   
-    max-height: 400px; 
-    width: 100%;   
-    height: 100%;  
-  }    
-  .demo-video .demo-video-heading {    
-    margin: 10px 0 0;  
-    padding-bottom: 20px;  
-    text-align: center; }  
-
 
 .icon-content {
     display: flex;

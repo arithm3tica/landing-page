@@ -15,19 +15,27 @@
   crossorigin="anonymous"></script>
 <script type="text/javascript">
     $(window).on("load",function(e){
-    $("[data-media]").on("click", function(e) {
-    e.preventDefault();
-    var $this = $(this);
-    var videoUrl = $this.attr("data-media");
-    var popup = $this.attr("href");
-    var $popupIframe = $(popup).find("iframe");
-    
-    $popupIframe.attr("src", videoUrl);
-    
-    $this.closest(".page").addClass("show-popup");
-    $this.closest(".page").removeClass("hide-popup");
-    });
+    var notMobile = !window.matchMedia("only screen and (max-width: 760px)");
+    if(notMobile.matches){
+        $("[data-media]").on("click", function(e) {
+            e.preventDefault();
+            var $this = $(this);
+            var videoUrl = $this.attr("data-media");
+            var popup = $this.attr("href");
+            var $popupIframe = $(popup).find("iframe");
+            
+            $popupIframe.attr("src", videoUrl);
+            
+            $this.closest(".page").addClass("show-popup");
+            $this.closest(".page").removeClass("hide-popup");
 
+        });
+    }
+    else{
+        $("[data-media]")[0].href = "https://www.youtube.com/embed/qc_T5NhzoSQ?vq=hd720&autoplay=1&modestbranding=1&rel=0";
+        $("[data-media]")[0].target="_blank";
+        $(".popup").remove();
+    }
     $(".popup > iframe").on("click", function(e) {
         e.stopPropagation();
     });
@@ -41,6 +49,7 @@
 
 });
 </script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <title>Arithmetica - Decentralized Computational Math Platform</title>
