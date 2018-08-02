@@ -3,11 +3,12 @@ $cool-gray-dark: #5a6a87;
 $cool-gray-dark-50: rgba(65, 80, 108, 0.5);
 $cool-gray-med-dark: #6D7277;
 $cool-gray-light: #cdd0d3;
-$lightest-gray: #F5F6F7;
+$lightest-gray: #f8f8f8;
 $brand-gradient: linear-gradient(to bottom right, #3a4a69, #121721);
-$dark-blue: #2a3344;
+$dark-blue: #283348;
 $brand-hr-color: #5C6B87;
 $brand-yellow: #FFA506;
+$brand-yellow-hover: #e58c06;
 $brand-blue: #6BBCF2;
 $brand-green: #7dc792;
 $breakpoint-laptop: 1439px;
@@ -27,6 +28,15 @@ $breakpoint-mobile-menu: 745px;
     letter-spacing: -.035em;
     padding: 0 30px;
     border-radius: 44px;
+    transition: background 200ms;
+
+    .button-icon {
+        margin-right: 10px;
+    }
+
+    & + .button {
+        margin-left: 10px;
+    }
 }
 
 @mixin button-cta() {
