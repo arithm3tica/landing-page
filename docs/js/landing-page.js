@@ -33,6 +33,28 @@ var LandingPage = function () {
         }
     }
 
+    // demo video
+    var demoVideoModal = document.getElementById('demo-video-modal');
+    var youtubeAPI = document.createElement('script');
+    youtubeAPI.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(youtubeAPI, firstScriptTag);
+
+    var demoVideoPlayer = void 0;
+    window.onYouTubeIframeAPIReady = function () {
+        demoVideoPlayer = new YT.Player('demo-video', {
+            width: '1280',
+            height: '720',
+            videoId: 'qc_T5NhzoSQ'
+        });
+    };
+    demoVideoModal.addEventListener('modal-open', function () {
+        return demoVideoPlayer.playVideo();
+    });
+    demoVideoModal.addEventListener('modal-close', function () {
+        return demoVideoPlayer.stopVideo();
+    });
+
     // team portraits
     var portraits = document.querySelectorAll('#team .portrait');
 

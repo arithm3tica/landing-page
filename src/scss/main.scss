@@ -59,6 +59,7 @@ a {
 }
 
 button, input[type=submit] {
+    @extend %button;
     cursor: pointer;
 }
 
