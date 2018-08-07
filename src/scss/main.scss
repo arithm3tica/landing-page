@@ -1,22 +1,40 @@
 @import 'theme';
 
+/*--------------------------------------------------
+ Table of Contents
+----------------------------------------------------
+ 1.0 Resets & Utility
+ 2.0 Alignments
+ 3.0 Typography
+ 4.0 Links & Buttons
+ 5.0 Forms
+ 6.0 Section Styles
+ 7.0 Layouts
+    7.1 Main Navigation
+    7.2 Hero
+    7.3 Intro
+    7.4 Main
+    7.5 Use Cases
+    7.6 Quote
+    7.7 Team
+    7.8 Final CTA & Footer
+--------------------------------------------------*/
+
+/*--------------------------------------------------
+ 1.0 Resets & Utility
+--------------------------------------------------*/
+
 * {
     box-sizing: border-box;
 }
 
 body {
-    color: $cool-gray-med-dark;
-    font-size: 20px;
-    font-family: "proxima-nova", sans-serif;
-    letter-spacing: .010em;
     margin: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
 
-body > * {
-    padding-left: 4vw;
-    padding-right: 4vw;
+    > * {
+       padding-left: 4vw;
+        padding-right: 4vw; 
+    }
 }
 
 .cf:before,
@@ -26,11 +44,34 @@ body > * {
     clear: both;
 }
 
+/*--------------------------------------------------
+ 2.0 Alignments
+--------------------------------------------------*/
+
+/*--------------------------------------------------
+ 3.0 Typography
+--------------------------------------------------*/
+
+body,
+input,
+select,
+textarea {
+    color: $cool-gray-med-dark;
+    font-size: 20px;
+    font-family: "proxima-nova", sans-serif;
+    letter-spacing: .010em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 h1, h2, h3, h4, h5, h6 {
     color: $cool-gray-dark;
     font-family: 'Maven Pro', sans-serif;
     letter-spacing: -.035em;
     font-weight: 500;
+}
+
+h1, h2, h3, h4, h5, h6 {
     margin-bottom: 12px;
 }
 
@@ -58,24 +99,13 @@ a {
     color: $brand-blue;
 }
 
+/*--------------------------------------------------
+ 4.0 Links & Buttons
+--------------------------------------------------*/
+
 button, input[type=submit] {
     @extend %button;
     cursor: pointer;
-}
-
-input:not([type=submit]):not([type=file]) {
-    height: 44px;
-    font-size: 18px;
-    color: $cool-gray-med-dark;
-    padding: 0 10px;
-    border: 1px solid #CDD0D3;
-    border-radius: 4px;
-}
-
-.section-heading {
-    font-size: 36px;
-    text-align: center;
-    margin-top: 0;
 }
 
 .button {
@@ -97,30 +127,22 @@ input:not([type=submit]):not([type=file]) {
     }
 }
 
-.arrow-section {
-    position: relative;
+/*--------------------------------------------------
+ 5.0 Forms
+--------------------------------------------------*/
 
-    .section-arrow-top,
-    .section-arrow-bottom {
-        position: absolute;
-        left: 0;
-        width: 100%;
-        height: 100px;
-    }
-
-    .section-arrow-top {
-        top: 0;
-    }
-
-    .section-arrow-bottom {
-        bottom: 0;
-    }
+input:not([type=submit]):not([type=file]) {
+    height: 44px;
+    padding: 0 10px;
+    border: 1px solid #CDD0D3;
+    border-radius: 4px;
+    font-size: 18px;
+    color: $cool-gray-med-dark;
 }
 
-.inner {
-    max-width: 1440px;
-    margin: 0 auto;
-}
+/*--------------------------------------------------
+ 6.0 Section Styles
+--------------------------------------------------*/
 
 .branded {
     background: $brand-gradient;
@@ -145,8 +167,84 @@ input:not([type=submit]):not([type=file]) {
     background: $lightest-gray;
 }
 
+.arrow-section {
+    position: relative;
+
+    .section-arrow-top,
+    .section-arrow-bottom {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100px;
+    }
+
+    .section-arrow-top {
+        top: 0;
+    }
+
+    .section-arrow-bottom {
+        bottom: 0;
+    }
+}
+
+/*--------------------------------------------------
+ 7.0 Layouts
+--------------------------------------------------*/
+
+.inner {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.section-heading {
+    font-size: 36px;
+    text-align: center;
+    margin-top: 0;
+}
+
 .content-block {
     max-width: 600px;
+}
+
+.icon-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .item {
+        flex: 1 1 610px;
+        display: flex;
+        align-items: flex-start;
+        max-width: 610px;
+        margin-top: 60px;
+
+        @media screen and (max-width: $breakpoint-laptop) {
+            flex-basis: 430px;
+        }
+
+        @media screen and (max-width: $breakpoint-small-monitor) {
+            flex-basis: 100%;
+        }
+
+        &:nth-child(2n) {
+            margin-left: 80px;
+
+            @media screen and (max-width: $breakpoint-small-monitor) {
+                margin-left: 0;
+            }
+        }
+
+        .icon {
+            width: 100px;
+            height: 100px;
+            margin-right: 10px;
+        }
+
+        .content {
+            max-width: 500px;
+            font-size: 18px;
+        }
+    }
 }
 
 .tooltip {
@@ -191,6 +289,10 @@ input:not([type=submit]):not([type=file]) {
         transform: translate(-50%, 0) scale(1);
     }
 }
+
+/*--------------------------------------------------
+ 7.1 Main Navigation
+--------------------------------------------------*/
 
 #main-nav {
     font-size: 18px;
@@ -459,6 +561,10 @@ input:not([type=submit]):not([type=file]) {
     }
 }
 
+/*--------------------------------------------------
+ 7.2 Hero
+--------------------------------------------------*/
+
 #hero {
     background: url(../images/hero-bg.png) no-repeat center top/2103px auto, $brand-gradient;
     height: 660px;
@@ -492,6 +598,14 @@ input:not([type=submit]):not([type=file]) {
 
     }
 }
+
+/*--------------------------------------------------
+ 7.3 Intro
+--------------------------------------------------*/
+
+/*--------------------------------------------------
+ 7.4 Main
+--------------------------------------------------*/
 
 main {
 
@@ -541,6 +655,9 @@ main {
     }
 }
 
+/*--------------------------------------------------
+ 7.5 Use Cases
+--------------------------------------------------*/
 
 .use-cases {
     padding-top: 210px;
@@ -557,46 +674,13 @@ main {
     }
 }
 
-.icon-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+/*--------------------------------------------------
+ 7.6 Quote
+--------------------------------------------------*/
 
-    .item {
-        flex: 1 1 610px;
-        display: flex;
-        align-items: flex-start;
-        max-width: 610px;
-        margin-top: 60px;
-
-        @media screen and (max-width: $breakpoint-laptop) {
-            flex-basis: 430px;
-        }
-
-        @media screen and (max-width: $breakpoint-small-monitor) {
-            flex-basis: 100%;
-        }
-
-        &:nth-child(2n) {
-            margin-left: 80px;
-
-            @media screen and (max-width: $breakpoint-small-monitor) {
-                margin-left: 0;
-            }
-        }
-
-        .icon {
-            width: 100px;
-            height: 100px;
-            margin-right: 10px;
-        }
-
-        .content {
-            max-width: 500px;
-            font-size: 18px;
-        }
-    }
-}
+/*--------------------------------------------------
+ 7.7 Team
+--------------------------------------------------*/
 
 #team {
     padding-top: 140px;
@@ -692,6 +776,10 @@ main {
         }
     }
 }
+
+/*--------------------------------------------------
+ 7.8 Final CTA & Footer
+--------------------------------------------------*/
 
 .final-cta {
     background: url(../images/final-cta-bg.png) no-repeat center bottom/2103px auto, $brand-gradient;
