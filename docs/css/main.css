@@ -649,6 +649,7 @@ section {
  7.4 Main
 --------------------------------------------------*/
 main {
+  overflow: hidden;
   padding-top: 110px; }
   main .section-heading {
     font-size: 40px; }
