@@ -50,10 +50,10 @@ const LandingPage = (function() {
     demoVideoModal.addEventListener('modal-close', () => demoVideoPlayer.stopVideo());
 
     // team portraits
-    const portraits = document.querySelectorAll('#team .portrait');
+    // const portraits = document.querySelectorAll('#team .portrait');
 
-    for (let portrait of portraits) {
-        portrait.style.backgroundImage = 'url(images/' + portrait.dataset.bg + ')';
-    }
+    // for (let portrait of portraits) {
+    //     portrait.style.backgroundImage = 'url(images/' + portrait.dataset.bg + ')';
+    // }
 
 })();

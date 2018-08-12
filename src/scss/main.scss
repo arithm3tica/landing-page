@@ -14,10 +14,11 @@
     7.2 Hero
     7.3 Intro
     7.4 Main
-    7.5 Use Cases
+    7.5 Benefits
     7.6 Quote
-    7.7 Team
-    7.8 Final CTA & Footer
+    7.7 Use Cases
+    7.8 Team
+    7.9 Final CTA & Footer
 --------------------------------------------------*/
 
 /*--------------------------------------------------
@@ -37,6 +38,16 @@ body {
     }
 }
 
+::selection {
+  background: $dark-blue;
+  color: #fff;
+}
+
+::-moz-selection {
+  background: $dark-blue;
+  color: #fff;
+}
+
 .cf:before,
 .cf:after {
     content: '';
@@ -48,6 +59,15 @@ body {
  2.0 Alignments
 --------------------------------------------------*/
 
+.align-center {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
 /*--------------------------------------------------
  3.0 Typography
 --------------------------------------------------*/
@@ -57,42 +77,45 @@ input,
 select,
 textarea {
     color: $cool-gray-med-dark;
-    font-size: 20px;
-    font-family: "proxima-nova", sans-serif;
+    font-size: 18px;
+    font-family: $body-text;
     letter-spacing: .010em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    color: $cool-gray-dark;
-    font-family: 'Maven Pro', sans-serif;
-    letter-spacing: -.035em;
-    font-weight: 500;
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    @extend %heading-style;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    margin-bottom: 12px;
-}
-
-h1 {
+h1, .h1 {
     font-size: 48px;
 }
 
-h2 {
+h2, .h2 {
+    font-size: 36px;
+}
+
+h3, .h3 {
     font-size: 29px;
 }
 
-h3 {
+h4, .h4 {
     font-size: 22px;
 }
 
-h1, h2, h3, h4, h5, h6, p {
-    margin: 12px 0;
+h5, .h5 {
+    font-size: 18px;
 }
 
-p {
-    line-height: 140%;
+h1, h2, h3, h4, h5, h6,
+p, blockquote {
+    margin: 15px 0;
+}
+
+p, blockquote {
+    line-height: 160%;
 }
 
 a {
@@ -148,23 +171,25 @@ input:not([type=submit]):not([type=file]) {
     background: $brand-gradient;
     color: #D1DAE3;
 
-    h1, h2, h3, h4, h5, h6 {
+
+    h1, h2, h3, h4, h5, h6,
+    .h1, .h2, .h3, .h4, .h5, .h6 {
         color: #fff;
     }
 
     .button {
-        background: $cool-gray-dark-50;
-        line-height: 42px;
-        border: 1px solid $cool-gray-dark;
+        border: 2px solid $button-stroke;
+        line-height: 40px;
+        background: none;
 
         &:hover {
-            background: $cool-gray-dark;
+            background: $cool-gray-dark-50;
         }
     }
 }
 
 .gray {
-    background: $lightest-gray;
+    background: $lightest-gray radial-gradient(closest-side, #fff, $lightest-gray);
 }
 
 .arrow-section {
@@ -176,6 +201,10 @@ input:not([type=submit]):not([type=file]) {
         left: 0;
         width: 100%;
         height: 100px;
+
+        * {
+            fill: #fff;
+        }
     }
 
     .section-arrow-top {
@@ -191,6 +220,10 @@ input:not([type=submit]):not([type=file]) {
  7.0 Layouts
 --------------------------------------------------*/
 
+section {
+    position: relative;
+}
+
 .inner {
     max-width: 1440px;
     margin: 0 auto;
@@ -204,47 +237,6 @@ input:not([type=submit]):not([type=file]) {
 
 .content-block {
     max-width: 600px;
-}
-
-.icon-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    .item {
-        flex: 1 1 610px;
-        display: flex;
-        align-items: flex-start;
-        max-width: 610px;
-        margin-top: 60px;
-
-        @media screen and (max-width: $breakpoint-laptop) {
-            flex-basis: 430px;
-        }
-
-        @media screen and (max-width: $breakpoint-small-monitor) {
-            flex-basis: 100%;
-        }
-
-        &:nth-child(2n) {
-            margin-left: 80px;
-
-            @media screen and (max-width: $breakpoint-small-monitor) {
-                margin-left: 0;
-            }
-        }
-
-        .icon {
-            width: 100px;
-            height: 100px;
-            margin-right: 10px;
-        }
-
-        .content {
-            max-width: 500px;
-            font-size: 18px;
-        }
-    }
 }
 
 .tooltip {
@@ -290,6 +282,168 @@ input:not([type=submit]):not([type=file]) {
     }
 }
 
+.product-steps {
+    counter-reset: steps;
+
+    .product-step {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        margin: 150px 0;
+        counter-increment: steps;
+
+        .content-block {
+            position: relative;
+            margin-right: 60px;
+            padding-left: 35px;
+            max-width: 535px;
+
+            * {
+                position: relative;
+            }
+
+            &:before {
+                @extend %heading-style;
+                content: counter(steps);
+                position: absolute;
+                top: -85px;
+                left: -35px;
+                width: 1em;
+                text-align: center;
+                font-size: 144px;
+                font-weight: 700;
+                color: #ebf2f7;
+
+            }
+        }
+
+        .product-step-screen {
+            display: block;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, .15);
+            border-radius: 10px 0 10px 0;
+            width: 583px;
+            max-width: 90%;
+        }
+
+        .product-step-screen-stack {
+            position: relative;
+            padding: 0 115px 95px 0;
+
+            .product-step-screen + .product-step-screen {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+            }
+        }
+
+        &:first-child {
+            margin-top: 120px;
+        }
+
+        &:nth-child(even) {
+            flex-direction: row-reverse;
+
+            .content-block {
+                margin-left: 60px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $breakpoint-small-monitor) {
+    .product-steps {
+
+        .content-block {
+            margin: 90px 0 0 !important;
+        }
+
+        .product-step {
+            flex-basis: 100%;
+            flex-direction: column-reverse !important;
+            margin: 120px 0;
+        }
+    }
+}
+
+.icon-cols {
+    @include cols(3, 60px);
+    
+    .col {
+        margin-top: 70px;
+        text-align: center;
+
+        img {
+            margin-bottom: 10px;
+        }
+    }
+}
+
+@media screen and (max-width: $breakpoint-small-monitor) {
+
+    .icon-cols {
+        @include cols(2, 60px);
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+
+    .icon-cols {
+        display: block;
+
+        .col {
+            margin-right: auto;
+            margin-left: auto;
+            max-width: 400px;
+        }
+    }
+
+}
+
+.content-boxes {
+    @include cols(2, 60px);
+    // max-width: 1280px;
+    // margin: 0 auto;
+
+    .col {
+        margin-top: 60px;
+        box-shadow: 0 8px 40px rgba(0, 0, 0, .10);
+        border-radius: 10px 0 10px 0;
+        padding: 45px;
+        background: #fff;
+
+        :last-child {
+            margin-bottom: 0;
+        }
+
+        h3 {
+            margin-top: 0;
+
+            &:after {
+                content: '';
+                display: block;
+                margin: 25px 0;
+                width: 120px;
+                height: 2px;
+                background: $brand-yellow;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $breakpoint-tablet) {
+
+    .content-boxes {
+        display: block;
+        margin-top: 60px;
+
+        .col {
+            margin-top: 30px;
+            max-width: none;
+        }
+    }
+}
+
 /*--------------------------------------------------
  7.1 Main Navigation
 --------------------------------------------------*/
@@ -308,7 +462,7 @@ input:not([type=submit]):not([type=file]) {
         padding: 26px 0 20px;
         display: flex;
         align-items: center;
-        border-bottom: 1px solid $brand-hr-color;
+        border-bottom: 2px solid $brand-hr-color;
         transition: all 200ms;
     }
 
@@ -348,19 +502,20 @@ input:not([type=submit]):not([type=file]) {
             border: none;
             border-top: 2px solid #fff;
             border-bottom: 2px solid #fff;
+            border-radius: 0;
             padding: 0;
             position: relative;
             display: block;
-        }
 
-        #open-menu-button:after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            background: #fff;
-            top: 10px;
-            left: 0;
+            &:after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 2px;
+                background: #fff;
+                top: 10px;
+                left: 0;
+            }
         }
 
         a:not(.button) {
@@ -393,7 +548,7 @@ input:not([type=submit]):not([type=file]) {
             height: 5px;
             background: $brand-blue;
             position: absolute;
-            bottom: -20px;
+            bottom: -22px;
             left: 0;
             transition: all 200ms;
 
@@ -425,7 +580,7 @@ input:not([type=submit]):not([type=file]) {
                 align-items: center;
 
                 h2 {
-                    color: $cool-gray-dark;
+                    color: $dark-text;
                     margin: 0;
                 }
 
@@ -561,6 +716,13 @@ input:not([type=submit]):not([type=file]) {
     }
 }
 
+@media screen and (max-width: $breakpoint-small-monitor) {
+
+    main {
+        padding-top: 90px;
+    }
+}
+
 /*--------------------------------------------------
  7.2 Hero
 --------------------------------------------------*/
@@ -588,89 +750,109 @@ input:not([type=submit]):not([type=file]) {
 
         p {
             font-size: 20px;
-            line-height: 140%;
+            line-height: 160%;
             margin: 12px 0;
+        }
+
+        .button {
+            height: 50px;
+            line-height: 46px;
         }
 
         .button-cta {
             margin-top: 30px;
+            height: 50px;
+            line-height: 50px;
         }
 
     }
+
+    .section-arrow-bottom * {
+        fill: $lightest-gray;
+    }
+}
+
+#demo-video-modal iframe {
+    max-width: 100%;
+    max-height: 100%;
 }
 
 /*--------------------------------------------------
  7.3 Intro
 --------------------------------------------------*/
 
-/*--------------------------------------------------
- 7.4 Main
---------------------------------------------------*/
+#intro {
+    padding-top: 100px;
+    padding-bottom: 130px;
+    text-align: center;
 
-main {
-
-    @media screen and (max-width: $breakpoint-small-monitor) {
-        text-align: center;
-        padding-top: 30px;
-        padding-bottom: 30px;
+    h2 {
+        margin-top: 0;
     }
 
+    p {
+        color: $dark-text;
+        font-size: 20px;
+    }
 
-    .main-content-row {
-        display: flex;
-        justify-content: space-around;
-        margin: 120px 0 150px;
+    .image-container {
+        position: relative;
+        margin-top: 30px;
+        margin-bottom: 30px;
 
-        @media screen and (max-width: $breakpoint-small-monitor) {
-            flex-direction: column;
-            margin: 60px 0;
+        img {
+            max-width: 100%;
         }
 
-        > * {
-            max-width: 600px;
-            flex: 1 1 600px;
-
-            @media screen and (max-width: $breakpoint-small-monitor) {
-                flex-basis: 0;
-            }
-        }
-
-        .content-block {
-            margin: 0 60px 0 0;
-
-            @media screen and (max-width: $breakpoint-small-monitor) {
-                margin: 0 auto;
-            }
-        }
-
-        &:nth-child(even) .content-block {
-            order: 2;
-            margin: 0 0 0 60px;
-
-            @media screen and (max-width: $breakpoint-small-monitor) {
-                order: 1;
-                margin: 0 auto;
-            }
+        &:after {
+            content: url('../images/arithmetica-network-accent.svg');
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
         }
     }
 }
 
 /*--------------------------------------------------
- 7.5 Use Cases
+ 7.4 Main
 --------------------------------------------------*/
 
-.use-cases {
-    padding-top: 210px;
-    padding-bottom: 140px;
+main {
+    padding-top: 110px;
 
-    .content-block {
-        text-align: center;
-        margin: 0 auto;
+    .section-heading {
+        font-size: 40px;
+        
+        &:after {
+            content: '';
+            display: block;
+            margin: 40px auto;
+            width: 480px;
+            height: 2px;
+            background: $light-hr-color;
+        }
     }
+}
 
-    .use-cases-heading {
-        margin: 60px 0 0;
-        text-align: center;
+/*--------------------------------------------------
+ 7.5 Benefits
+--------------------------------------------------*/
+
+#benefits {
+    margin-top: 180px;
+
+    .section-heading {
+        margin-left: 70px;
+        text-align: left;
+    }
+}
+
+@media screen and (max-width: $breakpoint-small-monitor) {
+
+    #benefits {
+        margin-top: 120px;
     }
 }
 
@@ -678,107 +860,169 @@ main {
  7.6 Quote
 --------------------------------------------------*/
 
+.quote {
+    position: relative;
+    margin-top: 150px;
+    overflow: hidden;
+    padding-top: 120px;
+    padding-bottom: 130px;
+    background: url(../images/hero-bg.png) no-repeat center top/2103px auto, $brand-gradient;
+    color: #dfe2e5;
+
+    .quote-arrow-top,
+    .quote-arrow-bottom {
+        position: absolute;
+        left: -66.66%;
+        width: 200%;
+        height: 200px;
+
+        * {
+            fill: #fff;
+        }
+    }
+
+    .quote-arrow-top {
+        top: 0;
+    }
+
+    .quote-arrow-bottom {
+        bottom: 0;
+    }
+
+    .inner {
+        max-width: 680px;
+    }
+}
+
+@media screen and (max-width: $breakpoint-small-monitor) {
+
+    .quote {
+        margin-top: 90px;
+    }
+}
+
 /*--------------------------------------------------
- 7.7 Team
+ 7.7 Use Cases
+--------------------------------------------------*/
+
+#use-cases {
+    margin-top: 120px;
+
+    .inner > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    .section-heading-accent {
+        position: absolute;
+        top: -65px;
+        right: 0;
+        left: 0;
+        margin: auto;
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: $breakpoint-small-monitor) {
+
+    #use-cases {
+        margin-top: 90px;
+    }
+}
+
+/*--------------------------------------------------
+ 7.8 Team
 --------------------------------------------------*/
 
 #team {
-    padding-top: 140px;
-    padding-bottom: 140px;
+    margin-top: 45px;
+    padding-top: 105px;
+    padding-bottom: 150px;
+    text-align: center;
 
-    h2 {
-        margin: 0 0 50px;
+    h3, p {
+        margin: 8px 0;
     }
 
-    @media screen and (max-width: 700px) {
-        padding-top: 60px;
-        padding-bottom: 60px;
+    h3 {
+        margin-top: 20px;
+    }
+
+    .section-arrow-top {
+        top: -100px;
+        z-index: 0;
+
+        * {
+            fill: $lightest-gray;
+        }
+    }
+
+    .section-heading {
+        display: inline-block;
+        margin: 0 auto;
+        border: 2px solid $light-hr-color;
+        border-radius: 80px;
+        padding: 0 60px;
+        line-height: 76px;
     }
 
     .team-members {
-        display: flex;
-        justify-content: space-between;
-        margin-top: -30px;
+        @include cols(3, 60px);
 
-        @media screen and (max-width: $breakpoint-laptop) {
-            margin-top: -3%;
-            flex-wrap: wrap;
-            justify-content: flex-start;
+        .col {
+            margin-top: 60px;
         }
 
-        @media screen and (max-width: $breakpoint-small-monitor) {
-            justify-content: center;
-        }
-
-        @media screen and (max-width: 700px) {
-            margin-top: -30px;
-        }
-
-        .team-member {
-            text-align: center;
-            margin: 30px 0 0 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, .1);
-            flex: 1 1 360px;
+        .portrait {
+            margin: 0 auto;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+            border: 4px solid white;
+            border-radius: 100%;
             overflow: hidden;
-            max-width: 360px;
+            width: 164px;
+            height: 164px;
 
-            &:nth-of-type(5n + 1) {
-                margin-left: 0;
+            img {
+                max-width: 164px;
             }
+        }
+    }
+}
 
-            @media screen and (min-width: $breakpoint-small-monitor + 1) and (max-width: $breakpoint-laptop) {
-                margin: 3% 0 0 3%;
-                width: 31.33%;
-                flex: none;
+@media screen and (max-width: $breakpoint-small-monitor) {
+
+    #team {
+        padding-top: 75px;
+        padding-bottom: 90px;
+    }
+}
+
+@media screen and (max-width: $breakpoint-mobile-menu) {
+
+    #team {
+
+        .team-members {
+            @include cols(2, 60px);
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    #team {
+
+        .team-members {
+            display: block;
+
+            .col {
                 max-width: none;
-
-                &:nth-of-type(3n + 1) {
-                    margin-left: 0;
-                }
-            }
-
-            @media screen and (max-width: $breakpoint-small-monitor) {
-                margin: 3% 0 0 3%;
-                width: 48.5%;
-                flex: none;
-
-                &:nth-of-type(2n + 1) {
-                    margin-left: 0;
-                }
-            }
-
-            @media screen and (max-width: 700px) {
-                margin: 30px 0 0 0;
-                flex-basis: 360px;
-            }
-
-            .portrait {
-                height: 285px;
-                background-size: cover;
-                background-position: top center;
-                position: relative;
-            }
-
-            h2 {
-                font-size: 22px;
-                margin: 0;
-            }
-
-            p {
-                margin: 6px 0 0;
-                font-size: 18px;
-            }
-
-            .team-member-content {
-                padding: 20px;
             }
         }
     }
 }
 
 /*--------------------------------------------------
- 7.8 Final CTA & Footer
+ 7.9 Final CTA & Footer
 --------------------------------------------------*/
 
 .final-cta {
@@ -789,11 +1033,15 @@ main {
         background-size: auto 100%;
     }
 
+    .section-arrow-top * {
+        fill: $lightest-gray;
+    }
+
     .interested {
         font-size: 18px;
         padding: 45px 0 60px;
         margin-top: 0;
-        justify-content: space-evenly;
+        justify-content: space-around;
         display: flex;
 
         .interested-left {
@@ -823,7 +1071,6 @@ main {
 
         .content-block {
             text-align: center;
-            margin: 0 0 60px;
             display: inline-flex;
             justify-content: space-evenly;
             .help-button {
@@ -852,7 +1099,7 @@ main {
     }
 
     footer {
-        border-top: 1px solid $brand-hr-color;
+        border-top: 2px solid $brand-hr-color;
         font-size: 18px;
         padding: 45px 0 60px;
         justify-content: space-evenly;
@@ -918,7 +1165,7 @@ main {
             .footer-center,
             .footer-right {
                 max-width: 640px;
-                margin: 45px auto;
+                margin: 20px auto;
             }
         }
 
@@ -927,5 +1174,12 @@ main {
         .footer-right > :first-child {
             margin-top: 0;
         }
+    }
+}
+
+@media screen and (max-width: $breakpoint-small-monitor) {
+
+    .final-cta {
+        padding-top: 90px;
     }
 }
