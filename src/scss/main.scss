@@ -386,6 +386,15 @@ section {
 
 }
 
+
+@media screen and (max-width: $breakpoint-mobile-menu) {
+
+    .icon-cols {
+        @include cols(2, 8vw);
+    }
+}
+
+
 @media screen and (max-width: 600px) {
 
     .icon-cols {
@@ -1010,7 +1019,7 @@ main {
     #team {
 
         .team-members {
-            @include cols(2, 60px);
+            @include cols(2, 8vw);
         }
     }
 }
